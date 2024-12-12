@@ -2,3 +2,5 @@
 .history
 .vscode
 .DS_Store
+dataset/
+outputs/

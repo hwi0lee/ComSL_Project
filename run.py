@@ -10,6 +10,9 @@ from pytorch_lightning.strategies import DDPStrategy, DeepSpeedStrategy
 from config.parse_yaml_args import parse_args_and_yaml
 from data.data_util import load_data_record
 from modules import get_module
+import warnings
+
+warnings.filterwarnings("ignore")
 
 os.environ["TORCH_DISTRIBUTED_DEBUG"] = "INFO"
 
@@ -28,12 +31,10 @@ if __name__ == "__main__":
         subsample_rate = cfg.valid_sample_rate if split == "dev" else 1
         language_list = cfg.language_list
         expanded_language_list = cfg.extra_language_list
-
         joined_data_pair_lists[split], \
         sep_data_pair_lists[split] = load_data_record(cfg.data_root,
                                                       split,
                                                       subsample_rate=subsample_rate,
-                                                      language_list=language_list,
                                                       expanded_data_root=cfg.cv_data_root,
                                                       expanded_language_list=expanded_language_list, )
 

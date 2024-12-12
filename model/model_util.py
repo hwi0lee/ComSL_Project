@@ -1,5 +1,5 @@
 from torch.nn import LayerNorm
-from transformers import MBartForConditionalGeneration, MBart50TokenizerFast, MBartConfig
+from transformers import MBartForConditionalGeneration, MBart50TokenizerFast, MBartConfig, MBart50Tokenizer
 from Whisper.model import *
 
 MBART_PRETRAINED_MODEL = "facebook/mbart-large-50-many-to-many-mmt"

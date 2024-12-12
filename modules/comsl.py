@@ -179,7 +179,7 @@ class ComSTModule(LightningModule):
             "logging_output": logging_output
         }
 
-    def validation_epoch_end(self, outputs):
+    def on_validation_epoch_end(self):
         for metric_name, metric_list in self.valid_metrics.items():
             results = [m.compute() for m in metric_list]
             if 'bleu' in metric_name:
@@ -231,7 +231,7 @@ class ComSTModule(LightningModule):
 
         return decode_res
 
-    def test_epoch_end(self, outputs):
+    def on_test_epoch_end(self):
         for metric_name, metric_list in self.test_metrics.items():
             results = [m.compute() for m in metric_list]
             if 'bleu' in metric_name:

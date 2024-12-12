@@ -8,7 +8,7 @@ default_config_parser = parser = argparse.ArgumentParser(
 parser.add_argument(
     '-c',
     '--config',
-    default='comsl.yaml',
+    default='comsl_custom.yaml',
     type=str,
     metavar='FILE',
     help='YAML config file specifying default arguments')
